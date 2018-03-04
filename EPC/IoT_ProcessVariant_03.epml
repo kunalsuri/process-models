@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<epml:epml xmlns:epml="http://www.epml.de"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="epml_1_draft.xsd">
+  <epc epcId="4047f7013a9c9f87208e351593652d1e" name="IoT_ProcessVariant_03">
+    <function id="Task_0serti5">
+      <name>Measure Temperature (a1)</name>
+    </function>
+    <function id="Task_1w8ctba">
+      <name>Send  Aggregated Data (a4)</name>
+    </function>
+    <function id="Task_18ufm73">
+      <name>Check Data &amp; Make Decision (a6)</name>
+    </function>
+    <function id="Task_09oqqg4">
+      <name>Update Backend Database (a10)</name>
+    </function>
+    <function id="Task_0mjd9xb">
+      <name>Calculate Quality Degradation (a7)</name>
+    </function>
+    <function id="Task_0jsy49w">
+      <name>Raise Alarm (a8)</name>
+    </function>
+    <function id="Task_0mczbot">
+      <name>Measure Humidity (a2)</name>
+    </function>
+    <function id="Task_04feyer">
+      <name>Notify User (a9)</name>
+    </function>
+    <function id="Task_1okjdp7">
+      <name>Measure light Intensity (a3)</name>
+    </function>
+    <event id="StartEvent_1">
+      <name>Start</name>
+    </event>
+    <event id="EndEvent_1ik2nuy">
+      <name>END</name>
+    </event>
+    <xor id="ExclusiveGateway_0p6guo8">
+      <name/>
+    </xor>
+    <xor id="ExclusiveGateway_1w8zcso">
+      <name/>
+    </xor>
+    <and id="ExclusiveGateway_0i9gwwo">
+      <name/>
+    </and>
+    <and id="ParallelGateway_0rg1uw6">
+      <name/>
+    </and>
+    <and id="ExclusiveGateway_1hd1z44">
+      <name/>
+    </and>
+    <and id="ParallelGateway_0uz0r5s">
+      <name/>
+    </and>
+    <and id="ParallelGateway_07bhton">
+      <name/>
+    </and>
+    <and id="ParallelGateway_1yc6jm7">
+      <name/>
+    </and>
+    <arc id="0">
+      <flow source="StartEvent_1" target="ExclusiveGateway_1hd1z44" />
+    </arc>
+    <arc id="1">
+      <flow source="Task_0serti5" target="ParallelGateway_0uz0r5s" />
+    </arc>
+    <arc id="2">
+      <flow source="Task_1w8ctba" target="ExclusiveGateway_0i9gwwo" />
+    </arc>
+    <arc id="3">
+      <flow source="ExclusiveGateway_0i9gwwo" target="Task_18ufm73" />
+    </arc>
+    <arc id="4">
+      <flow source="ExclusiveGateway_0i9gwwo" target="Task_0mjd9xb" />
+    </arc>
+    <arc id="5">
+      <flow source="Task_18ufm73" target="ExclusiveGateway_1w8zcso" />
+    </arc>
+    <arc id="6">
+      <flow source="ExclusiveGateway_1w8zcso" target="ExclusiveGateway_0p6guo8" />
+    </arc>
+    <arc id="7">
+      <flow source="ParallelGateway_1yc6jm7" target="ExclusiveGateway_0p6guo8" />
+    </arc>
+    <arc id="8">
+      <flow source="ExclusiveGateway_0p6guo8" target="ParallelGateway_0rg1uw6" />
+    </arc>
+    <arc id="9">
+      <flow source="ParallelGateway_0rg1uw6" target="EndEvent_1ik2nuy" />
+    </arc>
+    <arc id="10">
+      <flow source="Task_0mjd9xb" target="Task_09oqqg4" />
+    </arc>
+    <arc id="11">
+      <flow source="Task_09oqqg4" target="ParallelGateway_0rg1uw6" />
+    </arc>
+    <arc id="12">
+      <flow source="ExclusiveGateway_1hd1z44" target="Task_0serti5" />
+    </arc>
+    <arc id="13">
+      <flow source="ExclusiveGateway_1hd1z44" target="Task_0mczbot" />
+    </arc>
+    <arc id="14">
+      <flow source="Task_0mczbot" target="ParallelGateway_0uz0r5s" />
+    </arc>
+    <arc id="15">
+      <flow source="ParallelGateway_0uz0r5s" target="Task_1w8ctba" />
+    </arc>
+    <arc id="16">
+      <flow source="ExclusiveGateway_1w8zcso" target="ParallelGateway_07bhton" />
+    </arc>
+    <arc id="17">
+      <flow source="ParallelGateway_07bhton" target="Task_0jsy49w" />
+    </arc>
+    <arc id="18">
+      <flow source="ParallelGateway_07bhton" target="Task_04feyer" />
+    </arc>
+    <arc id="19">
+      <flow source="Task_0jsy49w" target="ParallelGateway_1yc6jm7" />
+    </arc>
+    <arc id="20">
+      <flow source="Task_04feyer" target="ParallelGateway_1yc6jm7" />
+    </arc>
+    <arc id="21">
+      <flow source="ExclusiveGateway_1hd1z44" target="Task_1okjdp7" />
+    </arc>
+    <arc id="22">
+      <flow source="Task_1okjdp7" target="ParallelGateway_0uz0r5s" />
+    </arc>
+    <arc id="23">
+      <relation source="" target="Task_0serti5" type="role"/>
+    </arc>
+    <arc id="24">
+      <relation source="" target="Task_1w8ctba" type="role"/>
+    </arc>
+    <arc id="25">
+      <relation source="" target="Task_18ufm73" type="role"/>
+    </arc>
+    <arc id="26">
+      <relation source="" target="Task_09oqqg4" type="role"/>
+    </arc>
+    <arc id="27">
+      <relation source="" target="Task_0mjd9xb" type="role"/>
+    </arc>
+    <arc id="28">
+      <relation source="" target="Task_0jsy49w" type="role"/>
+    </arc>
+    <arc id="29">
+      <relation source="" target="Task_0mczbot" type="role"/>
+    </arc>
+    <arc id="30">
+      <relation source="" target="Task_04feyer" type="role"/>
+    </arc>
+    <arc id="31">
+      <relation source="" target="Task_1okjdp7" type="role"/>
+    </arc>
+  </epc>
+</epml:epml>
